@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- @ifndef MANIFEST -->
+<html lang='en'>
+<!-- @endif -->
+<!-- @ifdef MANIFEST !>
+<html manifest='manifest.appcache' lang='en'>
+<!-- @endif -->
+
+<head>
+  <meta charset='utf-8' />
+  <meta name='description' content='SculptGL is a small sculpting application powered by JavaScript and webGL.'>
+  <meta name='author' content='stéphane GINIER'>
+  <title> SculptGL - A WebGL sculpting app </title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='css/yagui.css' type='text/css' />
+  <script type='text/javascript'>
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-42431392-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script>
+  'use strict';
+  window.addEventListener('load', function(e) {
+    // start the app
+    var SculptGL = require('Sculptgl');
+    window.sculptgl = new SculptGL();
+    window.sculptgl.start();
+    if ('<!-- @echo MANIFEST !>' === 'true') { // check if manifest
+      // Check if a new cache is available on page load.
+      window.applicationCache.addEventListener('updateready', function(e) {
+        if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+          window.location.reload();
+        }
+      }, false);
+    }
+  }, false);
+  </script>
+</head>
+
+<body oncontextmenu='return false;'>
+  <input type='file' id='fileopen' multiple style='display: none' />
+  <input type='file' id='backgroundopen' style='display: none' />
+  <input type='file' id='alphaopen' style='display: none' />
+  <input type='file' id='textureopen' style='display: none' />
+  <input type='file' id='matcapopen' style='display: none' />
+
+  <div id='viewport'>
+    <canvas id='canvas'></canvas>
+  </div>
+
+  <!-- minified sculptgl -->
+  <script src='sculptgl.min.js'></script>
+  <script src='//cdn.webglstats.com/stat.js' defer='defer' async='async'></script>
+</body>
+
+</html>

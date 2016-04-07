@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8' />
+  <meta name='description' content='SculptGL is a small sculpting application powered by JavaScript and webGL.'>
+  <meta name='author' content='stéphane GINIER'>
+  <title> SculptGL - A WebGL sculpting app </title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='css/yagui.css' type='text/css' />
+  <script>
+  window.requireNode = window.require;
+  window.require = undefined;
+  // to debug nodewebkit : (somewhere in the js code once everything is loaded)
+  // window.require = window.requireNode;
+  // require('nw.gui').Window.get().showDevTools();
+  </script>
+  <!-- 3rd party libraries -->
+  <script src='lib/FileSaver.js'></script>
+  <script src='lib/gl-matrix.js'></script>
+  <script src='lib/yagui.js'></script>
+  <script src='lib/zip.js'></script>
+  <script src='lib/hammer.js'></script>
+
+  <script data-main='main' src='tools/require.js'></script>
+</head>
+
+<body oncontextmenu='return false;'>
+  <input type='file' id='fileopen' multiple style='display: none' />
+  <input type='file' id='backgroundopen' style='display: none' />
+  <input type='file' id='alphaopen' style='display: none' />
+  <input type='file' id='textureopen' style='display: none' />
+  <input type='file' id='matcapopen' style='display: none' />
+
+  <div id='viewport'>
+    <canvas id='canvas'></canvas>
+  </div>
+</body>
+
+</html>
