@@ -8,6 +8,8 @@ define(function (require, exports, module) {
   var Utils = require('misc/Utils');
   var Scene = require('Scene');
   var Multimesh = require('mesh/multiresolution/Multimesh');
+  var serialport = require('serialport');
+  var SerialPort = serialport.SerialPort;
 
   var vec3 = glm.vec3;
 
@@ -270,6 +272,11 @@ define(function (require, exports, module) {
     ////////////////
     // MOUSE EVENTS
     ////////////////
+    // var serialport = require('serialport'),// include the library
+    // SerialPort = serialport.SerialPort,    // make a local instance of it
+    // portName = process.argv[2];            // get port name from the command line
+    // console.log(portName);
+
     onMouseDown: function (event) {
       event.stopPropagation();
       event.preventDefault();

@@ -254,7 +254,7 @@ define(function (require, exports, module) {
     },
     ////////////////
     // MOUSE EVENTS
-    ////////////////
+    //////////////// 
     onMouseUp: function (event) {
       if (this._toolOnRelease !== -1 && !event.ctrlKey && !event.shiftKey) {
         this.releaseInvertSign();

@@ -4,7 +4,7 @@ define(function (require, exports, module) {
 
   var getOptionsURL = require('misc/getOptionsURL');
 
-  // TODO
+  // TODO 
   // It was based NPAPI, a deprecated API !
   // need a workaround now...
   // maybe I should take a look at pointer events, or extended touch events
